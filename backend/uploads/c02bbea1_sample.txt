@@ -1,0 +1,27 @@
+Introduction to Tree Data Structure
+
+Introduction to Tree Structure
+
+A tree is a hierarchical data structure that organizes data in a parent-child relationship format. It is commonly used to represent data that naturally follows a branching pattern, such as folder structures in operating systems and tag structures in HTML or XML documents. The highest node in the tree is called the root, and nodes branching from the root or other nodes are called child nodes. These child nodes can further have their own children, forming a recursive organization.
+
+Basic Terminologies in Tree Data Structure
+
+- Parent Node: The immediate predecessor of a node. For example, node B is the parent of nodes D and E.
+- Child Node: The immediate successor of a node. For example, nodes D and E are child nodes of B.
+- Root Node: The topmost node with no parent. For example, A is the root node of the tree.
+- Leaf Node (External Node): Nodes without children. Examples include nodes I, J, K, F, G, and H.
+- Ancestor: Any node on the path from the root node to a specific node. For example, A and B are ancestors of E.
+- Descendant: A node x is a descendant of node y if y is an ancestor of x.
+- Sibling: Nodes that share the same parent. For example, D and E are siblings.
+- Level of a Node: The number of edges between the root node and the node. The root node is at level 0.
+- Internal Node: A node with at least one child.
+- Neighbor of a Node: The parent or child nodes of a node.
+- Subtree: A node and all its descendants form a subtree.
+
+Why Tree is Considered a Non-Linear Data Structure?
+
+Unlike arrays or linked lists where data is stored sequentially, trees organize data across multiple levels, forming a hierarchical structure. Because the data elements are stored in a branching, non-sequential manner, trees are considered non-linear data structures. It is recommended to begin with studying Binary Trees, which have specific structure and easier code implementations.
+
+Representation of Tree Data Structure
+
+A tree is represented by a root node connected to zero or more subtrees, T1, T2, ..., Tk. Each subtree is itself a tree rooted at one of the child nodes. The subtree of a node X includes all nodes for which X is an ancestor.

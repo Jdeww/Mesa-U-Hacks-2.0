@@ -4,6 +4,8 @@ import type { ContentBundle } from "./types";
 
 const API = (import.meta as any).env?.VITE_API_URL || "http://localhost:8000";
 
+
+
 const demoBundle: ContentBundle = {
   jobId: "demo-123",
   status: "ready",
@@ -68,6 +70,7 @@ export default function ContentView() {
     setQuizResult(null);
     setBundle(demoBundle);
   };
+  
 
   return (
     <div style={{ maxWidth: 900, margin: "24px auto", padding: 16 }}>
@@ -98,17 +101,12 @@ export default function ContentView() {
       {bundle && (
         <div style={{ marginTop: 24 }}>
           {/* Summary */}
-          <div
-            style={{
-              border: "1px solid #ddd",
-              borderRadius: 12,
-              padding: 16,
-              background: "#fafafa",
-            }}
-          >
-            <div style={{ fontWeight: 700, marginBottom: 8 }}>Summary</div>
-            <div>{bundle.summary || "No summary."}</div>
-          </div>
+<div className="surface-card"  // <-- add this
+     style={{ padding: 16 }}>
+  <div style={{ fontWeight: 700, marginBottom: 8 }}>Summary</div>
+  <div>{bundle.summary || "No summary."}</div>
+</div>
+
 
           {/* Flashcards */}
           <h2 style={{ textAlign: "center", marginTop: 24 }}>Review</h2>

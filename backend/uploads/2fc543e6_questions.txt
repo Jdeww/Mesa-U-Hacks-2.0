@@ -1,0 +1,21 @@
+Question section
+
+1. Which of the following is NOT a characteristic of a tree data structure?
+
+a.) It has a root node.
+
+b.) Nodes are arranged in a linear sequence.
+
+c.) Each node can have multiple child nodes.
+
+d.) Nodes have parent-child relationships.
+
+e.) It is used to represent hierarchical data.
+
+2. What is the name of the node that has no children in a tree?
+
+3. Define "ancestor" in the context of a tree data structure.
+
+4. What level is the root node assigned in a tree?
+
+5. Why is a tree considered a non-linear data structure?
