@@ -1,0 +1,11 @@
+Answer sheet
+
+1. b.) Nodes are arranged in a linear sequence. (Based on the section "Why Tree is considered a non-linear data structure?" which explains trees are non-linear because data is arranged hierarchically, not linearly.)
+
+2. Leaf node or external node. (From the definition under "Leaf Node or External Node.")
+
+3. Any predecessor node on the path from the root to the given node. (From the "Ancestor of a Node" definition.)
+
+4. Level 0. (From the "Level of a node" section that states the root has level 0.)
+
+5. Because data in a tree is arranged in multiple levels in a hierarchical manner, not sequentially. (From "Why Tree is considered a non-linear data structure?")
