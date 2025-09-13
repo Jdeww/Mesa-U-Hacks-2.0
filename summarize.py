@@ -1,6 +1,6 @@
 from openai import OpenAI
-
-client = OpenAI(api_key="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")
+import pdfplumber
+client = OpenAI(api_key="api key")
 
 file_paths = [
     r"C:\Users\jdwil\Downloads\test.txt"
@@ -8,10 +8,23 @@ file_paths = [
 
 # Read all files and combine text
 all_text = ""
+
+images = []
+
 for path in file_paths:
-    with open(path, "r", encoding="utf-8") as f:
-        content = f.read()
-        all_text += f"\n\n--- Content of {path} ---\n\n{content}"
+    if path.lower().endswith(".txt"):
+        with open(path, "r", encoding="utf-8") as f:
+            all_text += f"\n\n--- Content of {path} ---\n\n{f.read()}"
+    elif path.lower().endswith(".pdf"):
+        with pdfplumber.open(path) as pdf:
+            for i, page in enumerate(pdf.pages, start=1):
+                all_text += f"\n\n--- Content of {path}, page {i} ---\n\n"
+                all_text += page.extract_text() + f"\n[Refer to images/{path}_page{i}.jpg]\n"
+                for img_index, img in enumerate(page.images):
+                    # Save images if needed
+                    image_filename = f"images/{path}_page{i}_img{img_index}.jpg"
+                    images.append(image_filename)
+                    # Saving logic here (optional
 
 prompt = f"""make a summarization of the files given in the form of an article-like text. Most of the information inside of the
     files will be overlaping, so make sure to not use redundant information and try to highlight important or special information.
