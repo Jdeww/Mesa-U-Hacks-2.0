@@ -1,0 +1,52 @@
+{
+  "jobId": "c02bbea1",
+  "status": "ready",
+  "summary": "Introduction to Tree Data Structure Introduction to Tree Structure A tree is a hierarchical data structure that organizes data in a parent-child relationship format. It is commonly used to represent data that naturally follows a branching pattern, such as folder structures in operating systems and tag structures in HTML or XML documents. The highest node in the tree is called the root, and nodes branching from the root or other nodes are called child nodes. These child nodes can further have their own children, forming a recursive organization. Basic Terminologies in Tree Data Structure - Parent Node: The immediate predecessor of a node.",
+  "flashcards": [
+    {
+      "front": "What is Big-O of binary search?",
+      "back": "O(log n)"
+    },
+    {
+      "front": "Stack vs Queue?",
+      "back": "LIFO vs FIFO"
+    },
+    {
+      "front": "Merge two sorted arrays complexity?",
+      "back": "O(m + n)"
+    }
+  ],
+  "mcqs": [
+    {
+      "q": "Time complexity of binary search?",
+      "options": [
+        "O(n)",
+        "O(log n)",
+        "O(n log n)",
+        "O(1)"
+      ],
+      "answer": 1,
+      "explanation": "Halves the search space each step."
+    },
+    {
+      "q": "Merging two sorted arrays of sizes m,n takes…",
+      "options": [
+        "O(m+n)",
+        "O(log(m+n))",
+        "O(mn)",
+        "O(1)"
+      ],
+      "answer": 0
+    },
+    {
+      "q": "Stack removal policy?",
+      "options": [
+        "FIFO",
+        "LIFO",
+        "Random",
+        "Priority"
+      ],
+      "answer": 1
+    }
+  ]
+}

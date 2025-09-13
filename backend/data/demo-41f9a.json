@@ -1,0 +1,52 @@
+{
+  "jobId": "demo-41f9a",
+  "status": "ready",
+  "summary": "Auto summary: binary search, stacks vs queues, merge complexity.",
+  "flashcards": [
+    {
+      "front": "What is Big-O of binary search?",
+      "back": "O(log n)"
+    },
+    {
+      "front": "Stack vs Queue?",
+      "back": "LIFO vs FIFO"
+    },
+    {
+      "front": "Merge two sorted arrays complexity?",
+      "back": "O(m + n)"
+    }
+  ],
+  "mcqs": [
+    {
+      "q": "Time complexity of binary search?",
+      "options": [
+        "O(n)",
+        "O(log n)",
+        "O(n log n)",
+        "O(1)"
+      ],
+      "answer": 1,
+      "explanation": "Halves the search space each step."
+    },
+    {
+      "q": "Merging two sorted arrays of sizes m,n takes…",
+      "options": [
+        "O(m+n)",
+        "O(log(m+n))",
+        "O(mn)",
+        "O(1)"
+      ],
+      "answer": 0
+    },
+    {
+      "q": "Stack removal policy?",
+      "options": [
+        "FIFO",
+        "LIFO",
+        "Random",
+        "Priority"
+      ],
+      "answer": 1
+    }
+  ]
+}
