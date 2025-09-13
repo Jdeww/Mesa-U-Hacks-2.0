@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>File Upload Page</title>
+</head>
+<body>
+  <h1>Upload a File</h1>
+  
+  <!-- Upload button -->
+  <input 
+    type="file" 
+    id="fileInput" 
+    accept=".txt, .pdf" 
+  />
+  
+  <script>
+    const fileInput = document.getElementById('fileInput');
+    
+    fileInput.addEventListener('change', (event) => {
+      const file = event.target.files[0];
+      if (file) {
+        console.log(`File selected: ${file.name}`);
+      }
+    });
+  </script>
+</body>
+</html>
