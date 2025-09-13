@@ -1,21 +1,27 @@
 Question section
 
-1. Which of the following is NOT a characteristic of a tree data structure?
+1. Which of the following nodes is an internal node?
+a) I
+b) A
+c) J
+d) F
+e) K
 
-a.) It has a root node.
+2. What term is used for nodes having the same parent?
 
-b.) Nodes are arranged in a linear sequence.
+a) Descendants  
+b) Ancestors  
+c) Neighbors  
+d) Siblings  
+e) Leaves  
 
-c.) Each node can have multiple child nodes.
+3. Why is a tree considered a non-linear data structure?  
+short form answer
 
-d.) Nodes have parent-child relationships.
+4. What is a subtree in a tree data structure?
 
-e.) It is used to represent hierarchical data.
-
-2. What is the name of the node that has no children in a tree?
-
-3. Define "ancestor" in the context of a tree data structure.
-
-4. What level is the root node assigned in a tree?
-
-5. Why is a tree considered a non-linear data structure?
+a) A node without children  
+b) The topmost node  
+c) A node and all its descendant nodes  
+d) Nodes at the same level  
+e) Nodes connected to the root only
