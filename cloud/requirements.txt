@@ -1,0 +1,45 @@
+annotated-types==0.7.0
+anyio==4.10.0
+boto3==1.40.30
+botocore==1.40.30
+click==8.2.1
+fastapi==0.116.1
+h11==0.16.0
+idna==3.10
+jmespath==1.0.1
+pydantic==2.11.9
+pydantic_core==2.33.2
+python-dateutil==2.9.0.post0
+s3transfer==0.14.0
+six==1.17.0
+sniffio==1.3.1
+starlette==0.47.3
+typing-inspection==0.4.1
+typing_extensions==4.15.0
+urllib3==2.5.0
+uvicorn==0.35.0
+# --- API framework ---
+fastapi
+uvicorn[standard]
+
+# --- AWS S3 SDK ---
+boto3
+botocore
+
+# --- File handling ---
+python-multipart   # needed for FastAPI file uploads
+pdfplumber         # PDF text extraction (Person C)
+PyPDF2             # backup PDF parser
+
+# --- Env management ---
+python-dotenv
+
+# --- Validation / Data models ---
+pydantic
+
+# --- HTTP utilities ---
+httpx              # if you need to call external APIs
+
+# --- Optional: dev tools ---
+black              # code formatter
+pytest             # testing

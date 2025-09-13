@@ -2,9 +2,14 @@ from openai import OpenAI
 import pdfplumber
 from dotenv import load_dotenv
 import os
+from google.cloud import vision
+from PIL import Image
+import io
 
 # Load environment variables from .env file
 load_dotenv()
+
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = os.getenv("GOOGLE CREDENTIALS")
 
 # Get API key from environment
 api_key = os.getenv("OPENAI_API_KEY")
@@ -32,6 +37,19 @@ for path in file_paths:
                     image_filename = f"images/{path}_page{i}_img{img_index}.jpg"
                     images.append(image_filename)
                     # Optional: Save images
+    elif path.lower().endswith(".jpg" , ".jpeg"):
+        client = vision.ImageAnnotatorClient()
+
+    # Open the image and convert to bytes
+        with Image.open(path) as img:
+            with io.BytesIO() as output:
+                img.save(output, format="JPEG")
+                content = output.getvalue()
+
+        image = vision.Image(content=content)
+        response = client.document_text_detection(image=image)
+        all_text+= response.full_text_anotation.text
+
 
 prompt = f"""make a summarization of the files given in the form of an article-like text. Most of the information inside of the
 files will be overlapping, so make sure to not use redundant information and try to highlight important or special information.
