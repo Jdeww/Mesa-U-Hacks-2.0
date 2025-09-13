@@ -1,24 +1,29 @@
 from google.cloud import vision
-from pdf2image import convert_from_path
+from PIL import Image
 import os
 import io
 
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = r"C:\Users\jdwil\Downloads\bustling-syntax-472017-a4-9350377c4a41.json"
 
-def handwriting(path):
+def handwriting(image_path):
+    # Only process .jpg or .jpeg files
+    if not image_path.lower().endswith(('.jpg', '.jpeg')):
+        print("Skipping non-JPG image:", image_path)
+        return
+
     client = vision.ImageAnnotatorClient()
-    pages = convert_from_path(path, poppler_path=r"C:\Users\jdwil\Downloads\Release-25.07.0-0\poppler-25.07.0\Library\bin")
-    
-    for i, page in enumerate(pages):
-        # Convert PIL image to bytes
+
+    # Open the image and convert to bytes
+    with Image.open(image_path) as img:
         with io.BytesIO() as output:
-            page.save(output, format="JPEG")
+            img.save(output, format="JPEG")
             content = output.getvalue()
-        
-        image = vision.Image(content=content)
-        response = client.document_text_detection(image=image)
-        print(f"--- Page {i+1} ---")
-        print(response.full_text_annotation.text)
+
+    image = vision.Image(content=content)
+    response = client.document_text_detection(image=image)
+
+    print(f"--- Text from {os.path.basename(image_path)} ---")
+    print(response.full_text_annotation.text)
 
 # Example usage
-handwriting(r"C:\Users\jdwil\Downloads\Untitled Notebook (14).pdf")
+handwriting(r"C:\Users\jdwil\Downloads\'.jpg")
