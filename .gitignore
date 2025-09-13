@@ -1,0 +1,75 @@
+# ------------------------
+# OS / Editor junk
+# ------------------------
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.idea/
+.vscode/
+*.log
+
+# ------------------------
+# Python (backend)
+# ------------------------
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+.eggs/
+dist/
+build/
+.mypy_cache/
+.pytest_cache/
+.coverage
+htmlcov/
+.env
+.env.*
+.venv/
+venv/
+
+# ------------------------
+# Node / React (frontend)
+# ------------------------
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.pnpm-store/
+package-lock.json
+yarn.lock
+.next/
+out/
+dist/
+build/
+.cache/
+*.tsbuildinfo
+
+# ------------------------
+# Local files / secrets
+# ------------------------
+*.local
+*.secret
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# ------------------------
+# Docker
+# ------------------------
+*.pid
+*.seed
+*.pid.lock
+docker-compose.override.yml
+
+# ------------------------
+# Project-specific
+# ------------------------
+/files/              # your local input files (don’t commit PDFs, etc.)
+/tmp/                # temporary job storage
+/backend/storage/    # if you keep local fallbacks
