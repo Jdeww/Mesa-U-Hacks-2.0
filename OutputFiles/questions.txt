@@ -1,0 +1,10 @@
+*Question section*
+
+1. Which node has no parent and serves as the starting point in a tree structure?
+a.) Leaf Node  
+b.) Child Node  
+c.) Parent Node  
+d.) Root Node  
+e.) Internal Node  
+
+2. Define Data Abstraction in one sentence.

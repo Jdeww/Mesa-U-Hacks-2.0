@@ -1,0 +1,27 @@
+*Understanding Tree Data Structures*
+
+*Introduction to Tree Data Structures*
+
+Tree data structures are hierarchical models utilized to organize and represent data through parent-child relationships. Real-world examples of tree structures include folder systems in operating systems and tag hierarchies in HTML or XML documents. The root node sits atop the hierarchy, while subsequent nodes are categorized as child nodes. Each node can branch into multiple child nodes, creating a recursive and organized data structure.
+
+*Basic Terminologies in Tree Data Structure*
+
+- **Parent Node**: The immediate predecessor of a node. For example, node {B} is the parent of nodes {D} and {E}.
+- **Child Node**: The immediate successor of a node. Nodes {D} and {E} are children of node {B}.
+- **Root Node**: The topmost node without a parent, essential for any tree structure. For instance, {A} serves as the root node for a given tree, establishing the only path to all other nodes.
+- **Leaf Node**: Nodes without children, such as {I, J, K, F, G, H}, which are termed leaf nodes or external nodes.
+- **Ancestor**: Predecessor nodes leading from the root to any specific node, like {A} and {B} for node {E}.
+- **Descendant**: Node x is recognized as a descendant of node y if y is an ancestor of x.
+- **Sibling**: Children from the same parent node, exemplified by nodes {D} and {E}.
+- **Level**: The number of edges from the root to a particular node, with the root at level 0.
+- **Internal Node**: Any node that has at least one child.
+- **Neighbor**: Refers to the parent or child nodes of a specific node.
+- **Subtree**: A node and all its descendants.
+
+Trees are categorized as non-linear data structures because their data is not organized sequentially but instead is arranged in a hierarchical manner across multiple levels. Due to their complexity and use cases, studying binary trees is recommended as they provide structure and simpler implementation concepts.
+
+*Data Principles: Abstraction and Encapsulation*
+
+- **Data Representation**: Data serves as an essential element of programming, where it reflects information in forms that are suitable for processing.
+- **Data Abstraction**: This concept involves presenting only the essential information needed by the user, concealing implementation details to reduce complexity.
+- **Data Encapsulation**: Similar to abstraction, encapsulation aims to prevent unnecessary information from reaching the user, also known as information hiding.

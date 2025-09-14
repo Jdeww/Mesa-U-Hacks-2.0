@@ -1,0 +1,3 @@
+*Answer sheet*
+1. d.) Root Node  
+2. Data abstraction is the principle of providing only the essential information required by the user while hiding implementation details.

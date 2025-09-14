@@ -73,3 +73,4 @@ docker-compose.override.yml
 /files/              # your local input files (don’t commit PDFs, etc.)
 /tmp/                # temporary job storage
 /backend/storage/    # if you keep local fallbacks
+bustling-syntax-472017-a4-9350377c4a41.json

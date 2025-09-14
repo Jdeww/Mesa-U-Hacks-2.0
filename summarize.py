@@ -9,22 +9,26 @@ import io
 # Load environment variables from .env file
 load_dotenv()
 
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = os.getenv("GOOGLE CREDENTIALS")
+# Only set Google credentials if they exist in environment
+google_creds = os.getenv("GOOGLE_APPLICATION_CREDENTIALS")
+if google_creds:
+    os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = google_creds
 
 # Get API key from environment
 api_key = os.getenv("OPENAI_API_KEY")
 
 client = OpenAI(api_key=api_key)
 
-file_paths = [
-    r"C:\Users\jdwil\Downloads\test.txt",
-    # Add PDFs here if needed
-]
+import glob
+
+# Get all files from InputFiles directory
+file_paths = glob.glob("InputFiles/*")
 
 all_text = ""
 images = []
 
 for path in file_paths:
+    print(f"Processing file: {path}")
     if path.lower().endswith(".txt"):
         with open(path, "r", encoding="utf-8") as f:
             all_text += f"\n\n--- Content of {path} ---\n\n{f.read()}"
@@ -37,18 +41,30 @@ for path in file_paths:
                     image_filename = f"images/{path}_page{i}_img{img_index}.jpg"
                     images.append(image_filename)
                     # Optional: Save images
-    elif path.lower().endswith(".jpg" , ".jpeg"):
-        client = vision.ImageAnnotatorClient()
+    elif path.lower().endswith((".jpg", ".jpeg")):
+        print(f"Found image file: {path}")
+        if google_creds:
+            try:
+                print("Attempting OCR with Google Vision...")
+                vision_client = vision.ImageAnnotatorClient()
+                # Open the image and convert to bytes
+                with Image.open(path) as img:
+                    with io.BytesIO() as output:
+                        img.save(output, format="JPEG")
+                        content = output.getvalue()
 
-    # Open the image and convert to bytes
-        with Image.open(path) as img:
-            with io.BytesIO() as output:
-                img.save(output, format="JPEG")
-                content = output.getvalue()
-
-        image = vision.Image(content=content)
-        response = client.document_text_detection(image=image)
-        all_text+= response.full_text_anotation.text
+                image = vision.Image(content=content)
+                response = vision_client.document_text_detection(image=image)
+                ocr_text = response.full_text_annotation.text
+                print(f"OCR extracted {len(ocr_text)} characters")
+                all_text += f"\n\n--- OCR Text from {path} ---\n\n"
+                all_text += ocr_text
+            except Exception as e:
+                print(f"Warning: Could not process image {path}: {e}")
+                all_text += f"\n\n--- Image file {path} (OCR not available) ---\n\n"
+        else:
+            print(f"Warning: Google Cloud Vision not configured, skipping image {path}")
+            all_text += f"\n\n--- Image file {path} (OCR not available) ---\n\n"
 
 
 prompt = f"""make a summarization of the files given in the form of an article-like text. Most of the information inside of the
@@ -95,13 +111,14 @@ short form answer here
 
 {all_text}"""
 
-response = client.responses.create(
-    model="gpt-4.1-mini-2025-04-14",
-    store=False,
-    input=prompt
+response = client.chat.completions.create(
+    model="gpt-4o-mini",
+    messages=[
+        {"role": "user", "content": prompt}
+    ]
 )
 
-sections = response.output_text.split("-----------")
+sections = response.choices[0].message.content.split("-----------")
 
 # Save each section into separate files
 if len(sections) >= 3:
@@ -109,13 +126,13 @@ if len(sections) >= 3:
     questions = sections[1].strip()
     answers = sections[2].strip()
 
-    with open("summarization.txt", "w", encoding="utf-8") as f:
+    with open("OutputFiles/summarization.txt", "w", encoding="utf-8") as f:
         f.write(summarization)
 
-    with open("questions.txt", "w", encoding="utf-8") as f:
+    with open("OutputFiles/questions.txt", "w", encoding="utf-8") as f:
         f.write(questions)
 
-    with open("answers.txt", "w", encoding="utf-8") as f:
+    with open("OutputFiles/answers.txt", "w", encoding="utf-8") as f:
         f.write(answers)
 
     print("Files saved successfully!")
