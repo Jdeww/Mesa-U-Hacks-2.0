@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Users/mahar/OneDrive/Documents/GitHub/Mesa-U-Hacks-2.0/**)",
+      "Bash(npm install)",
+      "Bash(npm start)",
+      "Bash(ipconfig)",
+      "Bash(findstr:*)",
+      "Bash(npm run dev:*)",
+      "Bash(PORT=3002 npm start)",
+      "Bash(find:*)",
+      "Bash(npm install:*)",
+      "Bash(netstat:*)",
+      "Bash(taskkill:*)",
+      "Bash(PORT=3003 npm start)",
+      "Bash(python:*)",
+      "Bash(tasklist)",
+      "Bash(node server.js)",
+      "Bash(set PORT=3003)",
+      "Bash(cmd /c:*)",
+      "Bash(git add:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
