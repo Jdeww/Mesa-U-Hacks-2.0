@@ -221,4 +221,4 @@ This project may be liscensed in the future, but for now go ahead and use it as 
 - Check that questions.txt exists in OutputFiles
 - Verify AI processing completed successfully
 
-For more help, contact ace.maharjan@csueastbay.edu :)
+For more help, contact ace.maharjan@csueastbay.edu or darien.chau@csueastbay.edu :)
