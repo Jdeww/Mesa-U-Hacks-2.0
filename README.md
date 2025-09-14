@@ -5,6 +5,12 @@
 Nimbus Notes is a comprehensive study platform that transforms your uploaded documents into interactive study materials using AI. Upload text files, PDFs, or handwritten notes, and get AI-generated summaries, flashcards, quizzes, and competitive scoreboards.
 
 ##Link to demo video: https://drive.google.com/file/d/1bDneAJv2Zd1_IKepUBEivc18ERxa-7R7/view?usp=sharing 
+
+Contributors:
+-Ace Maharjan
+-Jason Wilaysono
+-Kyle Le
+-Darien Chau
 ## 🚀 Features
 
 ### 📚 Study Material Generation
