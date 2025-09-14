@@ -2,7 +2,7 @@
 
 **AI-Powered Study Platform with OCR and Competitive Learning**
 
-Nimbus Notes is a comprehensive study platform that transforms your uploaded documents into interactive study materials using AI. Upload text files, PDFs, or handwritten notes, and get AI-generated summaries, flashcards, quizzes, and competitive scoreboards.
+Nimbus Notes is a comprehensive study platform that transforms your uploaded documents into interactive study materials using AI. Upload text files, PDFs, or handwritten notes seamlessly to the cloud, and get AI-generated summaries, flashcards, quizzes, and competitive scoreboards. Ever wanted to see which one of your friends is the smartest? Well now you have the perfect chance to get bragging rights. It takes multiple users and combines all their notes to make a master summary to help you with your education.
 
 ##Link to demo video: https://drive.google.com/file/d/1bDneAJv2Zd1_IKepUBEivc18ERxa-7R7/view?usp=sharing 
 
@@ -191,7 +191,7 @@ points = (accuracy × 1000) + (questions × 100) - (time × 2)
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project may be liscensed in the future, but for now go ahead and use it as you see fit.
 
 ## 🙏 Acknowledgments
 
@@ -203,7 +203,9 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ## 🐛 Troubleshooting
 
 ### Common Issues
-
+**Generate summary not working?**
+-Ensure your frontend is correctly connected to your api and your api is running properly
+-Ensure that your .env file is setup with a working OPENAI API key
 **OCR not working?**
 - Ensure Google Cloud Vision API credentials are properly set
 - Check that the JSON credentials file exists
@@ -219,4 +221,4 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 - Check that questions.txt exists in OutputFiles
 - Verify AI processing completed successfully
 
-For more help, check the issues page or create a new issue.
+For more help, contact ace.maharjan@csueastbay.edu :)
