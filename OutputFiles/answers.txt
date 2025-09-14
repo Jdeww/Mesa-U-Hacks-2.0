@@ -1,3 +1,4 @@
 *Answer sheet*
-1. d.) Root Node  
-2. Data abstraction is the principle of providing only the essential information required by the user while hiding implementation details.
+1. d) Both b and c (Answer found in "Root Node" section under Tree Data Structures)  
+2. Trees are considered non-linear because their data is not arranged sequentially; instead, they are organized hierarchically across multiple levels (Answer found in "Why Tree is considered a non-linear data structure?" section).  
+3. Data abstraction and data encapsulation (Answer found in "Data Abstraction and Encapsulation" section).

@@ -6,7 +6,11 @@ import axios from "axios";
 import type { ContentBundle } from "../types";
 import { BookOpen, Brain, Clock } from "lucide-react";
 
-const StudySession: React.FC = () => {
+interface StudySessionProps {
+  onNavigateToScoreboard?: () => void;
+}
+
+const StudySession: React.FC<StudySessionProps> = ({ onNavigateToScoreboard }) => {
   const [bundle, setBundle] = useState<ContentBundle | null>(null);
   const [loading, setLoading] = useState(false);
   const [err, setErr] = useState<string | null>(null);
@@ -107,15 +111,17 @@ const StudySession: React.FC = () => {
           elapsedSeconds: result.elapsedSeconds
         });
 
-        // Show scoreboard after a brief delay
+        // Set completion flag and navigate to scoreboard after a brief delay
+        localStorage.setItem('lastQuizCompletion', Date.now().toString());
         setTimeout(() => {
-          setShowScoreboard(true);
+          onNavigateToScoreboard?.();
         }, 2000);
       } catch (error) {
         console.error('Error saving score:', error);
-        // Still show scoreboard even if save fails
+        // Still navigate to scoreboard even if save fails
+        localStorage.setItem('lastQuizCompletion', Date.now().toString());
         setTimeout(() => {
-          setShowScoreboard(true);
+          onNavigateToScoreboard?.();
         }, 2000);
       }
     }

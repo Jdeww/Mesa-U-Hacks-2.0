@@ -1,10 +1,12 @@
 *Question section*
 
-1. Which node has no parent and serves as the starting point in a tree structure?
-a.) Leaf Node  
-b.) Child Node  
-c.) Parent Node  
-d.) Root Node  
-e.) Internal Node  
+1. What is the role of a root node in a tree data structure?
+a.) It is a leaf node  
+b.) It has no parent node  
+c.) It can have multiple child nodes  
+d.) Both b and c  
+e.) None of the above  
 
-2. Define Data Abstraction in one sentence.
+2. Explain why trees are considered a non-linear data structure.
+
+3. What are the two key concepts associated with managing data complexity and interaction in programming?

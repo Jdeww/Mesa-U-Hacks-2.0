@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import HomePage from './components/HomePage';
 import StudySession from './components/StudySession';
 import DocumentsPage from './components/DocumentsPage';
+import ScoreboardPage from './components/ScoreboardPage';
 import Navigation from './components/Navigation';
 
-type Page = 'home' | 'study' | 'documents';
+type Page = 'home' | 'study' | 'documents' | 'scoreboard';
 
 const App: React.FC = () => {
   const [currentPage, setCurrentPage] = useState<Page>('home');
@@ -16,7 +17,8 @@ const App: React.FC = () => {
       <main className="pt-16">
         {currentPage === 'home' && <HomePage />}
         {currentPage === 'documents' && <DocumentsPage />}
-        {currentPage === 'study' && <StudySession />}
+        {currentPage === 'study' && <StudySession onNavigateToScoreboard={() => setCurrentPage('scoreboard')} />}
+        {currentPage === 'scoreboard' && <ScoreboardPage />}
       </main>
     </div>
   );

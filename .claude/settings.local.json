@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(./start.sh:*)",
+      "Bash(findstr:*)",
+      "Bash(venv/Scripts/python:*)",
+      "Bash(venv/Scripts/pip install:*)",
+      "Bash(taskkill:*)",
+      "Bash(netstat:*)",
+      "Bash(npm start)",
+      "Bash(cmd /c:*)",
+      "Bash(tasklist)",
+      "Bash(wmic process where:*)",
+      "Bash(cat:*)",
+      "Bash(curl:*)",
+      "Bash(git pull:*)",
+      "Bash(git add:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

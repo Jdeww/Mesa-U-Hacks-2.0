@@ -138,7 +138,12 @@ app.post('/api/process-files', async (req, res) => {
   try {
     console.log('Starting file processing...');
     
-    const pythonProcess = spawn('python3', ['summarize.py'], {
+    // Use the virtual environment Python on Windows
+    const pythonPath = process.platform === 'win32' ?
+      path.join(PROJECT_ROOT, 'venv', 'Scripts', 'python.exe') :
+      'python3';
+
+    const pythonProcess = spawn(pythonPath, ['summarize.py'], {
       cwd: PROJECT_ROOT,
       stdio: ['pipe', 'pipe', 'pipe']
     });
@@ -273,15 +278,37 @@ app.get('/api/user-scores', async (req, res) => {
     }
 
     const scoresData = await fs.readFile(scoresPath, 'utf8');
-    const scores = scoresData.trim().split('\n').map(line => {
-      const [name, points, avgScore, lastPlayed] = line.split('|');
-      return {
-        name,
-        points: parseInt(points),
-        avgScore: parseFloat(avgScore),
-        lastPlayed: new Date(lastPlayed).toISOString()
-      };
-    });
+    const scores = scoresData.trim().split('\n')
+      .filter(line => line.trim()) // Remove empty lines
+      .map(line => {
+        const parts = line.split('|');
+        if (parts.length !== 4) {
+          console.warn('Malformed score line:', line);
+          return null; // Skip malformed lines
+        }
+        const [name, points, avgScore, lastPlayed] = parts;
+
+        // Handle both timestamp formats
+        let dateISO;
+        try {
+          const date = new Date(lastPlayed.trim());
+          if (isNaN(date.getTime())) {
+            throw new Error('Invalid date');
+          }
+          dateISO = date.toISOString();
+        } catch (error) {
+          console.warn('Invalid date format for user:', name, 'date:', lastPlayed);
+          dateISO = new Date().toISOString(); // Use current date as fallback
+        }
+
+        return {
+          name: name.trim(),
+          points: parseInt(points) || 0,
+          avgScore: parseFloat(avgScore) || 0,
+          lastPlayed: dateISO
+        };
+      })
+      .filter(score => score !== null); // Remove null entries
 
     // Sort by points descending
     scores.sort((a, b) => b.points - a.points);

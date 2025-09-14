@@ -1,9 +1,9 @@
 import React from 'react';
-import { Home, BookOpen, Folder } from 'lucide-react';
+import { Home, BookOpen, Folder, Trophy } from 'lucide-react';
 
 interface NavigationProps {
-  currentPage: 'home' | 'study' | 'documents';
-  setCurrentPage: (page: 'home' | 'study' | 'documents') => void;
+  currentPage: 'home' | 'study' | 'documents' | 'scoreboard';
+  setCurrentPage: (page: 'home' | 'study' | 'documents' | 'scoreboard') => void;
 }
 
 const Navigation: React.FC<NavigationProps> = ({ currentPage, setCurrentPage }) => {
@@ -52,6 +52,18 @@ const Navigation: React.FC<NavigationProps> = ({ currentPage, setCurrentPage }) 
             >
               <BookOpen className="w-4 h-4 mr-2" />
               Study Session
+            </button>
+
+            <button
+              onClick={() => setCurrentPage('scoreboard')}
+              className={`flex items-center px-4 py-2 rounded-lg transition-all duration-200 ${
+                currentPage === 'scoreboard'
+                  ? 'bg-blue-600 text-white shadow-lg'
+                  : 'text-gray-600 hover:bg-blue-50 hover:text-blue-600'
+              }`}
+            >
+              <Trophy className="w-4 h-4 mr-2" />
+              Scoreboard
             </button>
           </div>
         </div>
